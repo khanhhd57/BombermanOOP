@@ -9,8 +9,11 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import uet.oop.bomberman.Map.FileLevelLoader;
 import uet.oop.bomberman.entities.bomb.Bomb;
+import uet.oop.bomberman.entities.bomb.Flame;
 import uet.oop.bomberman.entities.movable.Bomber;
+import uet.oop.bomberman.entities.movable.enemy.Enemy;
 import uet.oop.bomberman.entities.still.Grass;
 import uet.oop.bomberman.graphics.Sprite;
 
@@ -57,13 +60,13 @@ public class BombermanGame extends Application {
     jpanel.setPanel();
     root.getChildren().add(ro);
     Scene scene = new Scene(root);
-    stage.setScene();
+    stage.setScene(scene);
     stage.setResizable(false);
     stage.show();
 
     AnimationTimer timer = (l) -> {
       if (check == true) {
-        FileLevelLoader.;
+        FileLevelLoader.createMap;
         check = false;
       }
       if (cout == 0)

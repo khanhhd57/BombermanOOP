@@ -2,13 +2,15 @@ package uet.oop.bomberman.entities.movable;
 
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
-import uet.oop.bomberman.BombermanGame;
 import uet.oop.bomberman.entities.Character;
 import uet.oop.bomberman.entities.Entity;
 import uet.oop.bomberman.entities.bomb.Bomb;
 import uet.oop.bomberman.entities.items.BombItem;
+import uet.oop.bomberman.entities.items.FlameItem;
 import uet.oop.bomberman.entities.items.Item;
 import uet.oop.bomberman.entities.items.SpeedItem;
+import uet.oop.bomberman.entities.movable.enemy.Enemy;
+import uet.oop.bomberman.entities.still.Portal;
 import uet.oop.bomberman.graphics.Sprite;
 
 import java.awt.*;
@@ -16,6 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import static uet.oop.bomberman.BombermanGame.*;
 
 public class Bomber extends Character {
     private int bombRemain; // khai báo biê "số bomb dự trữ"
@@ -91,7 +95,7 @@ public class Bomber extends Character {
             }
             direction = null;
         }
-        if (keyCode = KeyCode.SPACE){
+        if (keyCode == KeyCode.SPACE){
             placeBompCommand = false;
         }
     }
@@ -119,7 +123,7 @@ public class Bomber extends Character {
     @Override
     public void goDown() {
         super.goDown();
-        img = Sprite.movingSprite(Sprite.player_down, Sprite.player_down_1, Sprite.player_down_2, 20).getFxImage();
+        img = Sprite.movingSprite(Sprite.player_down, Sprite.player_down_1, Sprite.player_down_2, down++, 20).getFxImage();
     }
 
     //phương thức xử lý chức năng đặt bom
@@ -178,15 +182,36 @@ public class Bomber extends Character {
                 if (bomberman.getLayer() == stillObject.getLayer() && stillObject instanceof Item) { //nếu chỉ số va chạm của bomber = thực thể và thực thể đó là item
                     if (stillObject instanceof BombItem) {
                         startBomb++;
-                        bomberman.setBombRemain(startBombn); //set up lại số bom dự trữ
+                        bomberman.setBombRemain(startBomb); //set up lại số bom dự trữ
                         stillObjects.remove(stillObject); //xóa vật thể đó khỏi list thực thể (chính là hành động ăn item)
                     } else if (stillObject instanceof SpeedItem) { //tương tự bomb item
                         bomberman.setSpeed(startSpeed);
                         stillObjects.remove(stillObject);
+                    } else if (stillObject instanceof FlameItem) {
+                        startFlame++;
+                        System.out.println(startFlame);
+                        bomberman.setRadius(startFlame);
+                        stillObjects.remove(stillObject);
                     }
-
+                    bomberman.stay(); //lệnh yêu cầu bomberman dừng lại (không vượt qua đc)
+                } else if (bomberman.getLayer() == stillObject.getLayer() && stillObject instanceof Portal) { //chỉ số va chạm của bomber bằng thực thể va thực thể là portal
+                    if (enemies.size() == 0) { //số anemy =
+                        //pass level
+                        level++; //lv up
+                        check = true;
+                    }
+                } else if ((bomberman.getLayer() >= stillObject.getLayer()) && !bomberIntersectsBom) { //chỉ số va chạm của bomber > grass tại vị trí đặt bom và người không va chạm với bom
+                    bomberman.move(); //cho phép đi qua bom
+                    isAlllowerGoToBom = false; //trả về false (không cho phép vượt qua bom nữa)
+                } else if ((bomberman.getLayer() >= stillObject.getLayer()) && bomberIntersectsBom) {
+                    if (isAlllowerGoToBom == true)
+                        bomberman.move(); //nếu biến trả về true thì cho phép đi qua bom
+                    else
+                        bomberman.stay(); //nếu biến trả về false thì đứng lại
                 }
             }
         }
     }
+
+
 }
