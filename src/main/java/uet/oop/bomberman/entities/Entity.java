@@ -1,7 +1,6 @@
 package uet.oop.bomberman.entities;
 
 import java.awt.*;
-import java.awt.Rectangle;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import uet.oop.bomberman.graphics.Sprite;
@@ -68,7 +67,7 @@ public abstract class Entity {
     return new Rectangle(x, y, Sprite.SCALED_SIZE, Sprite.SCALED_SIZE);
   }
 
-  //TRả về kết quả của Alive(sống hoạc chết)
+  //TRả về kết quả của Alive(sống hoặc chết)
   public boolean isAlive(){
     return alive;
   }
