@@ -1,0 +1,546 @@
+
+p
+java:S1104"SMake _pixels a static final constant or non-public and provide accessors if needed.(òĞ¤ô8”öªç¹0
+s
+java:S1104"QMake grass a static final constant or non-public and provide accessors if needed.(¶…æœûÿÿÿÿ8”öªç¹0
+s
+java:S1104"QMake brick a static final constant or non-public and provide accessors if needed.(µßÉÌûÿÿÿÿ8”öªç¹0
+m
+java:S1104"PMake wall a static final constant or non-public and provide accessors if needed.(ğ’È8”öªç¹0
+o
+java:S1104"RMake portal a static final constant or non-public and provide accessors if needed.(üŠ¥´8”öªç¹0
+w
+java:S1104&"UMake player_up a static final constant or non-public and provide accessors if needed.(®¿§§üÿÿÿÿ8•öªç¹0
+t
+java:S1104'"WMake player_down a static final constant or non-public and provide accessors if needed.(Ê«ÔŞ8•öªç¹0
+t
+java:S1104("WMake player_left a static final constant or non-public and provide accessors if needed.(ıôÍŒ8•öªç¹0
+u
+java:S1104)"XMake player_right a static final constant or non-public and provide accessors if needed.(Í§òü8•öªç¹0
+t
+java:S1104+"WMake player_up_1 a static final constant or non-public and provide accessors if needed.(Ÿ°şˆ8•öªç¹0
+t
+java:S1104,"WMake player_up_2 a static final constant or non-public and provide accessors if needed.(Ïß˜Â8•öªç¹0
+{
+java:S1104."YMake player_down_1 a static final constant or non-public and provide accessors if needed.(Ğï¹úÿÿÿÿ8•öªç¹0
+v
+java:S1104/"YMake player_down_2 a static final constant or non-public and provide accessors if needed.(è£Ï8•öªç¹0
+v
+java:S11041"YMake player_left_1 a static final constant or non-public and provide accessors if needed.(®ïû8•öªç¹0
+v
+java:S11042"YMake player_left_2 a static final constant or non-public and provide accessors if needed.(Ôı¸°8–öªç¹0
+w
+java:S11044"ZMake player_right_1 a static final constant or non-public and provide accessors if needed.(‚Ù…ä8–öªç¹0
+w
+java:S11045"ZMake player_right_2 a static final constant or non-public and provide accessors if needed.(óÚìÈ8–öªç¹0
+t
+java:S11047"XMake player_dead1 a static final constant or non-public and provide accessors if needed.(ÜÏ¶<8–öªç¹0
+u
+java:S11048"XMake player_dead2 a static final constant or non-public and provide accessors if needed.(…Æµ›8–öªç¹0
+u
+java:S11049"XMake player_dead3 a static final constant or non-public and provide accessors if needed.(²ëíÑ8–öªç¹0
+v
+java:S1104A"YMake balloom_left1 a static final constant or non-public and provide accessors if needed.(ŞŞŞ¸8–öªç¹0
+v
+java:S1104B"YMake balloom_left2 a static final constant or non-public and provide accessors if needed.(‡ÛµŒ8–öªç¹0
+{
+java:S1104C"YMake balloom_left3 a static final constant or non-public and provide accessors if needed.(†“áûÿÿÿÿ8–öªç¹0
+w
+java:S1104E"ZMake balloom_right1 a static final constant or non-public and provide accessors if needed.(°õºù8–öªç¹0
+w
+java:S1104F"ZMake balloom_right2 a static final constant or non-public and provide accessors if needed.(»ÏÄÜ8–öªç¹0
+|
+java:S1104G"ZMake balloom_right3 a static final constant or non-public and provide accessors if needed.(­†¶¨şÿÿÿÿ8–öªç¹0
+u
+java:S1104I"XMake balloom_dead a static final constant or non-public and provide accessors if needed.(ü¡’œ8—öªç¹0
+t
+java:S1104L"WMake oneal_left1 a static final constant or non-public and provide accessors if needed.(¡ÌÀş8—öªç¹0
+t
+java:S1104M"WMake oneal_left2 a static final constant or non-public and provide accessors if needed.(‰ñ£Ú8—öªç¹0
+y
+java:S1104N"WMake oneal_left3 a static final constant or non-public and provide accessors if needed.(Ë¼í şÿÿÿÿ8—öªç¹0
+u
+java:S1104P"XMake oneal_right1 a static final constant or non-public and provide accessors if needed.(ïî·ô8—öªç¹0
+u
+java:S1104Q"XMake oneal_right2 a static final constant or non-public and provide accessors if needed.(°Èƒº8—öªç¹0
+z
+java:S1104R"XMake oneal_right3 a static final constant or non-public and provide accessors if needed.(¤²¬şÿÿÿÿ8—öªç¹0
+s
+java:S1104T"VMake oneal_dead a static final constant or non-public and provide accessors if needed.(òÂÔ8˜öªç¹0
+x
+java:S1104W"VMake doll_left1 a static final constant or non-public and provide accessors if needed.(·“Ş•ûÿÿÿÿ8˜öªç¹0
+x
+java:S1104X"VMake doll_left2 a static final constant or non-public and provide accessors if needed.(…õ«€ÿÿÿÿÿ8˜öªç¹0
+s
+java:S1104Y"VMake doll_left3 a static final constant or non-public and provide accessors if needed.(¤¦ÕĞ8˜öªç¹0
+t
+java:S1104["WMake doll_right1 a static final constant or non-public and provide accessors if needed.(ôÌé÷8˜öªç¹0
+y
+java:S1104\"WMake doll_right2 a static final constant or non-public and provide accessors if needed.(å×ìãúÿÿÿÿ8˜öªç¹0
+y
+java:S1104]"WMake doll_right3 a static final constant or non-public and provide accessors if needed.(ôÔ³Æüÿÿÿÿ8˜öªç¹0
+r
+java:S1104_"UMake doll_dead a static final constant or non-public and provide accessors if needed.(ŞÄş8˜öªç¹0
+t
+java:S1104b"WMake minvo_left1 a static final constant or non-public and provide accessors if needed.(¿Ï³Î8˜öªç¹0
+t
+java:S1104c"WMake minvo_left2 a static final constant or non-public and provide accessors if needed.(Ûü¸˜8˜öªç¹0
+y
+java:S1104d"WMake minvo_left3 a static final constant or non-public and provide accessors if needed.(”ÓÁÿÿÿÿÿ8˜öªç¹0
+z
+java:S1104f"XMake minvo_right1 a static final constant or non-public and provide accessors if needed.(ã˜¶‡üÿÿÿÿ8˜öªç¹0
+z
+java:S1104g"XMake minvo_right2 a static final constant or non-public and provide accessors if needed.(«Æ™áúÿÿÿÿ8˜öªç¹0
+u
+java:S1104h"XMake minvo_right3 a static final constant or non-public and provide accessors if needed.(ç×šğ8™öªç¹0
+s
+java:S1104j"VMake minvo_dead a static final constant or non-public and provide accessors if needed.(™üÎÜ8™öªç¹0
+w
+java:S1104m"ZMake kondoria_left1 a static final constant or non-public and provide accessors if needed.(¦²ë²8™öªç¹0
+w
+java:S1104n"ZMake kondoria_left2 a static final constant or non-public and provide accessors if needed.(„Ä‹8™öªç¹0
+w
+java:S1104o"ZMake kondoria_left3 a static final constant or non-public and provide accessors if needed.(£Í»Ô8™öªç¹0
+x
+java:S1104q"[Make kondoria_right1 a static final constant or non-public and provide accessors if needed.(È©ıÿ8™öªç¹0
+x
+java:S1104r"[Make kondoria_right2 a static final constant or non-public and provide accessors if needed.(—š8™öªç¹0
+w
+java:S1104s"[Make kondoria_right3 a static final constant or non-public and provide accessors if needed.(ÃÅº*8™öªç¹0
+u
+java:S1104u"YMake kondoria_dead a static final constant or non-public and provide accessors if needed.(¤Ø!8™öªç¹0
+r
+java:S1104x"UMake mob_dead1 a static final constant or non-public and provide accessors if needed.(»¿µÒ8™öªç¹0
+r
+java:S1104y"UMake mob_dead2 a static final constant or non-public and provide accessors if needed.(’ô†ƒ8™öªç¹0
+q
+java:S1104z"UMake mob_dead3 a static final constant or non-public and provide accessors if needed.(ÂÓëp8™öªç¹0
+s
+java:S1104"PMake bomb a static final constant or non-public and provide accessors if needed.(¦Š€ûÿÿÿÿ8™öªç¹0
+p
+java:S1104‚"RMake bomb_1 a static final constant or non-public and provide accessors if needed.(­³›Ù8™öªç¹0
+p
+java:S1104ƒ"RMake bomb_2 a static final constant or non-public and provide accessors if needed.(£´­Ê8™öªç¹0
+w
+java:S1104Š"YMake bomb_exploded a static final constant or non-public and provide accessors if needed.(îÜú8™öªç¹0
+}
+java:S1104‹"ZMake bomb_exploded1 a static final constant or non-public and provide accessors if needed.(°ÃÄÖùÿÿÿÿ8™öªç¹0
+}
+java:S1104Œ"ZMake bomb_exploded2 a static final constant or non-public and provide accessors if needed.(Ì÷°¹ıÿÿÿÿ8™öªç¹0
+
+java:S1104"^Make explosion_vertical a static final constant or non-public and provide accessors if needed.(¼èÖ·ûÿÿÿÿ8™öªç¹0
+‚
+java:S1104"_Make explosion_vertical1 a static final constant or non-public and provide accessors if needed.(ø­»ºùÿÿÿÿ8™öªç¹0
+‚
+java:S1104"_Make explosion_vertical2 a static final constant or non-public and provide accessors if needed.(ÃÚ˜Šıÿÿÿÿ8™öªç¹0
+ƒ
+java:S1104’"`Make explosion_horizontal a static final constant or non-public and provide accessors if needed.(Ş¯‡…ÿÿÿÿÿ8™öªç¹0
+„
+java:S1104“"aMake explosion_horizontal1 a static final constant or non-public and provide accessors if needed.(¢ä†ûÿÿÿÿ8šöªç¹0
+
+java:S1104”"aMake explosion_horizontal2 a static final constant or non-public and provide accessors if needed.(§ÿÔ«8šöªç¹0
+ˆ
+java:S1104–"jMake explosion_horizontal_left_last a static final constant or non-public and provide accessors if needed.(°âÅÑ8šöªç¹0
+‰
+java:S1104—"kMake explosion_horizontal_left_last1 a static final constant or non-public and provide accessors if needed.(²¹å…8šöªç¹0
+
+java:S1104˜"kMake explosion_horizontal_left_last2 a static final constant or non-public and provide accessors if needed.(‡Ñ˜Ãùÿÿÿÿ8šöªç¹0
+‰
+java:S1104š"kMake explosion_horizontal_right_last a static final constant or non-public and provide accessors if needed.(ƒŞª¿8šöªç¹0
+Š
+java:S1104›"lMake explosion_horizontal_right_last1 a static final constant or non-public and provide accessors if needed.(ÕÀªì8šöªç¹0
+Š
+java:S1104œ"lMake explosion_horizontal_right_last2 a static final constant or non-public and provide accessors if needed.(¡²›×8šöªç¹0
+„
+java:S1104"gMake explosion_vertical_top_last a static final constant or non-public and provide accessors if needed.(ı©³*8›öªç¹0
+‹
+java:S1104Ÿ"hMake explosion_vertical_top_last1 a static final constant or non-public and provide accessors if needed.(†ë¸ùÿÿÿÿ8›öªç¹0
+†
+java:S1104 "hMake explosion_vertical_top_last2 a static final constant or non-public and provide accessors if needed.(®ˆ±ø8›öªç¹0
+†
+java:S1104¢"hMake explosion_vertical_down_last a static final constant or non-public and provide accessors if needed.(ãòõİ8›öªç¹0
+Œ
+java:S1104£"iMake explosion_vertical_down_last1 a static final constant or non-public and provide accessors if needed.(ïÍÈêıÿÿÿÿ8›öªç¹0
+‡
+java:S1104¤"iMake explosion_vertical_down_last2 a static final constant or non-public and provide accessors if needed.(¦„õÁ8›öªç¹0
+x
+java:S1104«"ZMake brick_exploded a static final constant or non-public and provide accessors if needed.(¬¡ŸÍ8›öªç¹0
+~
+java:S1104¬"[Make brick_exploded1 a static final constant or non-public and provide accessors if needed.(ÖâÃØúÿÿÿÿ8›öªç¹0
+y
+java:S1104­"[Make brick_exploded2 a static final constant or non-public and provide accessors if needed.(Ô’Óê8›öªç¹0
+|
+java:S1104´"YMake powerup_bombs a static final constant or non-public and provide accessors if needed.(Şƒºßüÿÿÿÿ8›öªç¹0
+x
+java:S1104µ"ZMake powerup_flames a static final constant or non-public and provide accessors if needed.(âÄËı8›öªç¹0
+|
+java:S1104¶"YMake powerup_speed a static final constant or non-public and provide accessors if needed.(©ø¯“øÿÿÿÿ8œöªç¹0
+z
+java:S1104·"\Make powerup_wallpass a static final constant or non-public and provide accessors if needed.(¨ıíŒ8œöªç¹0
+z
+java:S1104¸"]Make powerup_detonator a static final constant or non-public and provide accessors if needed.(ååÉ{8œöªç¹0
+z
+java:S1104¹"\Make powerup_bombpass a static final constant or non-public and provide accessors if needed.(¨î÷8œöªç¹0
+€
+java:S1104º"]Make powerup_flamepass a static final constant or non-public and provide accessors if needed.(ÛÉ€úÿÿÿÿ8œöªç¹0
+M
+java:S1444"+Make this "public static grass" field final(¶…æœûÿÿÿÿ8œöªç¹0
+M
+java:S1444"+Make this "public static brick" field final(µßÉÌûÿÿÿÿ8œöªç¹0
+G
+java:S1444"*Make this "public static wall" field final(ğ’È8œöªç¹0
+I
+java:S1444",Make this "public static portal" field final(üŠ¥´8œöªç¹0
+Q
+java:S1444&"/Make this "public static player_up" field final(®¿§§üÿÿÿÿ8œöªç¹0
+N
+java:S1444'"1Make this "public static player_down" field final(Ê«ÔŞ8öªç¹0
+N
+java:S1444("1Make this "public static player_left" field final(ıôÍŒ8öªç¹0
+O
+java:S1444)"2Make this "public static player_right" field final(Í§òü8öªç¹0
+N
+java:S1444+"1Make this "public static player_up_1" field final(Ÿ°şˆ8öªç¹0
+N
+java:S1444,"1Make this "public static player_up_2" field final(Ïß˜Â8öªç¹0
+U
+java:S1444."3Make this "public static player_down_1" field final(Ğï¹úÿÿÿÿ8öªç¹0
+P
+java:S1444/"3Make this "public static player_down_2" field final(è£Ï8öªç¹0
+P
+java:S14441"3Make this "public static player_left_1" field final(®ïû8öªç¹0
+P
+java:S14442"3Make this "public static player_left_2" field final(Ôı¸°8öªç¹0
+Q
+java:S14444"4Make this "public static player_right_1" field final(‚Ù…ä8öªç¹0
+Q
+java:S14445"4Make this "public static player_right_2" field final(óÚìÈ8öªç¹0
+N
+java:S14447"2Make this "public static player_dead1" field final(ÜÏ¶<8öªç¹0
+O
+java:S14448"2Make this "public static player_dead2" field final(…Æµ›8öªç¹0
+O
+java:S14449"2Make this "public static player_dead3" field final(²ëíÑ8öªç¹0
+P
+java:S1444A"3Make this "public static balloom_left1" field final(ŞŞŞ¸8öªç¹0
+P
+java:S1444B"3Make this "public static balloom_left2" field final(‡ÛµŒ8öªç¹0
+U
+java:S1444C"3Make this "public static balloom_left3" field final(†“áûÿÿÿÿ8öªç¹0
+Q
+java:S1444E"4Make this "public static balloom_right1" field final(°õºù8öªç¹0
+Q
+java:S1444F"4Make this "public static balloom_right2" field final(»ÏÄÜ8öªç¹0
+V
+java:S1444G"4Make this "public static balloom_right3" field final(­†¶¨şÿÿÿÿ8öªç¹0
+O
+java:S1444I"2Make this "public static balloom_dead" field final(ü¡’œ8öªç¹0
+N
+java:S1444L"1Make this "public static oneal_left1" field final(¡ÌÀş8öªç¹0
+N
+java:S1444M"1Make this "public static oneal_left2" field final(‰ñ£Ú8öªç¹0
+S
+java:S1444N"1Make this "public static oneal_left3" field final(Ë¼í şÿÿÿÿ8öªç¹0
+O
+java:S1444P"2Make this "public static oneal_right1" field final(ïî·ô8öªç¹0
+O
+java:S1444Q"2Make this "public static oneal_right2" field final(°Èƒº8öªç¹0
+T
+java:S1444R"2Make this "public static oneal_right3" field final(¤²¬şÿÿÿÿ8öªç¹0
+M
+java:S1444T"0Make this "public static oneal_dead" field final(òÂÔ8öªç¹0
+R
+java:S1444W"0Make this "public static doll_left1" field final(·“Ş•ûÿÿÿÿ8Ÿöªç¹0
+R
+java:S1444X"0Make this "public static doll_left2" field final(…õ«€ÿÿÿÿÿ8Ÿöªç¹0
+M
+java:S1444Y"0Make this "public static doll_left3" field final(¤¦ÕĞ8Ÿöªç¹0
+N
+java:S1444["1Make this "public static doll_right1" field final(ôÌé÷8Ÿöªç¹0
+S
+java:S1444\"1Make this "public static doll_right2" field final(å×ìãúÿÿÿÿ8Ÿöªç¹0
+S
+java:S1444]"1Make this "public static doll_right3" field final(ôÔ³Æüÿÿÿÿ8Ÿöªç¹0
+L
+java:S1444_"/Make this "public static doll_dead" field final(ŞÄş8Ÿöªç¹0
+N
+java:S1444b"1Make this "public static minvo_left1" field final(¿Ï³Î8Ÿöªç¹0
+N
+java:S1444c"1Make this "public static minvo_left2" field final(Ûü¸˜8Ÿöªç¹0
+S
+java:S1444d"1Make this "public static minvo_left3" field final(”ÓÁÿÿÿÿÿ8 öªç¹0
+T
+java:S1444f"2Make this "public static minvo_right1" field final(ã˜¶‡üÿÿÿÿ8 öªç¹0
+T
+java:S1444g"2Make this "public static minvo_right2" field final(«Æ™áúÿÿÿÿ8 öªç¹0
+O
+java:S1444h"2Make this "public static minvo_right3" field final(ç×šğ8 öªç¹0
+M
+java:S1444j"0Make this "public static minvo_dead" field final(™üÎÜ8 öªç¹0
+Q
+java:S1444m"4Make this "public static kondoria_left1" field final(¦²ë²8 öªç¹0
+Q
+java:S1444n"4Make this "public static kondoria_left2" field final(„Ä‹8 öªç¹0
+Q
+java:S1444o"4Make this "public static kondoria_left3" field final(£Í»Ô8 öªç¹0
+R
+java:S1444q"5Make this "public static kondoria_right1" field final(È©ıÿ8¡öªç¹0
+R
+java:S1444r"5Make this "public static kondoria_right2" field final(—š8¡öªç¹0
+Q
+java:S1444s"5Make this "public static kondoria_right3" field final(ÃÅº*8¡öªç¹0
+O
+java:S1444u"3Make this "public static kondoria_dead" field final(¤Ø!8¡öªç¹0
+L
+java:S1444x"/Make this "public static mob_dead1" field final(»¿µÒ8¡öªç¹0
+L
+java:S1444y"/Make this "public static mob_dead2" field final(’ô†ƒ8¡öªç¹0
+K
+java:S1444z"/Make this "public static mob_dead3" field final(ÂÓëp8¡öªç¹0
+M
+java:S1444"*Make this "public static bomb" field final(¦Š€ûÿÿÿÿ8¢öªç¹0
+J
+java:S1444‚",Make this "public static bomb_1" field final(­³›Ù8¢öªç¹0
+J
+java:S1444ƒ",Make this "public static bomb_2" field final(£´­Ê8¢öªç¹0
+Q
+java:S1444Š"3Make this "public static bomb_exploded" field final(îÜú8¢öªç¹0
+W
+java:S1444‹"4Make this "public static bomb_exploded1" field final(°ÃÄÖùÿÿÿÿ8¢öªç¹0
+W
+java:S1444Œ"4Make this "public static bomb_exploded2" field final(Ì÷°¹ıÿÿÿÿ8¢öªç¹0
+[
+java:S1444"8Make this "public static explosion_vertical" field final(¼èÖ·ûÿÿÿÿ8¢öªç¹0
+\
+java:S1444"9Make this "public static explosion_vertical1" field final(ø­»ºùÿÿÿÿ8¢öªç¹0
+\
+java:S1444"9Make this "public static explosion_vertical2" field final(ÃÚ˜Šıÿÿÿÿ8¢öªç¹0
+]
+java:S1444’":Make this "public static explosion_horizontal" field final(Ş¯‡…ÿÿÿÿÿ8¢öªç¹0
+^
+java:S1444“";Make this "public static explosion_horizontal1" field final(¢ä†ûÿÿÿÿ8¢öªç¹0
+Y
+java:S1444”";Make this "public static explosion_horizontal2" field final(§ÿÔ«8¢öªç¹0
+b
+java:S1444–"DMake this "public static explosion_horizontal_left_last" field final(°âÅÑ8¢öªç¹0
+c
+java:S1444—"EMake this "public static explosion_horizontal_left_last1" field final(²¹å…8£öªç¹0
+h
+java:S1444˜"EMake this "public static explosion_horizontal_left_last2" field final(‡Ñ˜Ãùÿÿÿÿ8£öªç¹0
+c
+java:S1444š"EMake this "public static explosion_horizontal_right_last" field final(ƒŞª¿8£öªç¹0
+d
+java:S1444›"FMake this "public static explosion_horizontal_right_last1" field final(ÕÀªì8£öªç¹0
+d
+java:S1444œ"FMake this "public static explosion_horizontal_right_last2" field final(¡²›×8£öªç¹0
+^
+java:S1444"AMake this "public static explosion_vertical_top_last" field final(ı©³*8£öªç¹0
+e
+java:S1444Ÿ"BMake this "public static explosion_vertical_top_last1" field final(†ë¸ùÿÿÿÿ8£öªç¹0
+`
+java:S1444 "BMake this "public static explosion_vertical_top_last2" field final(®ˆ±ø8£öªç¹0
+`
+java:S1444¢"BMake this "public static explosion_vertical_down_last" field final(ãòõİ8£öªç¹0
+f
+java:S1444£"CMake this "public static explosion_vertical_down_last1" field final(ïÍÈêıÿÿÿÿ8£öªç¹0
+a
+java:S1444¤"CMake this "public static explosion_vertical_down_last2" field final(¦„õÁ8£öªç¹0
+R
+java:S1444«"4Make this "public static brick_exploded" field final(¬¡ŸÍ8£öªç¹0
+X
+java:S1444¬"5Make this "public static brick_exploded1" field final(ÖâÃØúÿÿÿÿ8¤öªç¹0
+S
+java:S1444­"5Make this "public static brick_exploded2" field final(Ô’Óê8¤öªç¹0
+V
+java:S1444´"3Make this "public static powerup_bombs" field final(Şƒºßüÿÿÿÿ8¤öªç¹0
+R
+java:S1444µ"4Make this "public static powerup_flames" field final(âÄËı8¤öªç¹0
+V
+java:S1444¶"3Make this "public static powerup_speed" field final(©ø¯“øÿÿÿÿ8¤öªç¹0
+T
+java:S1444·"6Make this "public static powerup_wallpass" field final(¨ıíŒ8¤öªç¹0
+T
+java:S1444¸"7Make this "public static powerup_detonator" field final(ååÉ{8¤öªç¹0
+T
+java:S1444¹"6Make this "public static powerup_bombpass" field final(¨î÷8¤öªç¹0
+Z
+java:S1444º"7Make this "public static powerup_flamepass" field final(ÛÉ€úÿÿÿÿ8¤öªç¹0
+k	java:S116"ORename this field "SIZE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²«„8Ûöªç¹0
+n	java:S116"MRename this field "_x" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜Š“óûÿÿÿÿ8Ûöªç¹0
+n	java:S116"MRename this field "_y" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜Š“óûÿÿÿÿ8Ûöªç¹0
+n	java:S116"RRename this field "_pixels" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(òĞ¤ô8Üöªç¹0
+q	java:S116"URename this field "_realWidth" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õ¹¢8Üöªç¹0
+r	java:S116"VRename this field "_realHeight" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(á¤×8Üöªç¹0
+m	java:S116"QRename this field "_sheet" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶³¸8Üöªç¹0
+v
+java:S3008&"TRename this field "player_up" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®¿§§üÿÿÿÿ8Üöªç¹0
+s
+java:S3008'"VRename this field "player_down" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ê«ÔŞ8Üöªç¹0
+s
+java:S3008("VRename this field "player_left" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ıôÍŒ8Üöªç¹0
+t
+java:S3008)"WRename this field "player_right" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Í§òü8Üöªç¹0
+s
+java:S3008+"VRename this field "player_up_1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ÿ°şˆ8Üöªç¹0
+s
+java:S3008,"VRename this field "player_up_2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ïß˜Â8Üöªç¹0
+z
+java:S3008."XRename this field "player_down_1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğï¹úÿÿÿÿ8Üöªç¹0
+u
+java:S3008/"XRename this field "player_down_2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è£Ï8Üöªç¹0
+u
+java:S30081"XRename this field "player_left_1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®ïû8Üöªç¹0
+u
+java:S30082"XRename this field "player_left_2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ôı¸°8Üöªç¹0
+v
+java:S30084"YRename this field "player_right_1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚Ù…ä8İöªç¹0
+v
+java:S30085"YRename this field "player_right_2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óÚìÈ8İöªç¹0
+s
+java:S30087"WRename this field "player_dead1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÜÏ¶<8İöªç¹0
+t
+java:S30088"WRename this field "player_dead2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…Æµ›8İöªç¹0
+t
+java:S30089"WRename this field "player_dead3" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²ëíÑ8İöªç¹0
+u
+java:S3008A"XRename this field "balloom_left1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŞŞŞ¸8İöªç¹0
+u
+java:S3008B"XRename this field "balloom_left2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡ÛµŒ8İöªç¹0
+z
+java:S3008C"XRename this field "balloom_left3" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†“áûÿÿÿÿ8İöªç¹0
+v
+java:S3008E"YRename this field "balloom_right1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°õºù8İöªç¹0
+v
+java:S3008F"YRename this field "balloom_right2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»ÏÄÜ8İöªç¹0
+{
+java:S3008G"YRename this field "balloom_right3" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­†¶¨şÿÿÿÿ8İöªç¹0
+t
+java:S3008I"WRename this field "balloom_dead" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ü¡’œ8Şöªç¹0
+s
+java:S3008L"VRename this field "oneal_left1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡ÌÀş8Şöªç¹0
+s
+java:S3008M"VRename this field "oneal_left2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰ñ£Ú8Şöªç¹0
+x
+java:S3008N"VRename this field "oneal_left3" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ë¼í şÿÿÿÿ8Şöªç¹0
+t
+java:S3008P"WRename this field "oneal_right1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïî·ô8Şöªç¹0
+t
+java:S3008Q"WRename this field "oneal_right2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°Èƒº8Şöªç¹0
+y
+java:S3008R"WRename this field "oneal_right3" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤²¬şÿÿÿÿ8Şöªç¹0
+r
+java:S3008T"URename this field "oneal_dead" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(òÂÔ8Şöªç¹0
+w
+java:S3008W"URename this field "doll_left1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·“Ş•ûÿÿÿÿ8Şöªç¹0
+w
+java:S3008X"URename this field "doll_left2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…õ«€ÿÿÿÿÿ8ßöªç¹0
+r
+java:S3008Y"URename this field "doll_left3" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤¦ÕĞ8ßöªç¹0
+s
+java:S3008["VRename this field "doll_right1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôÌé÷8ßöªç¹0
+x
+java:S3008\"VRename this field "doll_right2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(å×ìãúÿÿÿÿ8ßöªç¹0
+x
+java:S3008]"VRename this field "doll_right3" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôÔ³Æüÿÿÿÿ8ßöªç¹0
+q
+java:S3008_"TRename this field "doll_dead" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŞÄş8ßöªç¹0
+s
+java:S3008b"VRename this field "minvo_left1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿Ï³Î8ßöªç¹0
+s
+java:S3008c"VRename this field "minvo_left2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ûü¸˜8ßöªç¹0
+x
+java:S3008d"VRename this field "minvo_left3" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”ÓÁÿÿÿÿÿ8ßöªç¹0
+y
+java:S3008f"WRename this field "minvo_right1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ã˜¶‡üÿÿÿÿ8ßöªç¹0
+y
+java:S3008g"WRename this field "minvo_right2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«Æ™áúÿÿÿÿ8ßöªç¹0
+t
+java:S3008h"WRename this field "minvo_right3" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ç×šğ8àöªç¹0
+r
+java:S3008j"URename this field "minvo_dead" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(™üÎÜ8àöªç¹0
+v
+java:S3008m"YRename this field "kondoria_left1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦²ë²8àöªç¹0
+v
+java:S3008n"YRename this field "kondoria_left2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„Ä‹8àöªç¹0
+v
+java:S3008o"YRename this field "kondoria_left3" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£Í»Ô8àöªç¹0
+w
+java:S3008q"ZRename this field "kondoria_right1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(È©ıÿ8àöªç¹0
+w
+java:S3008r"ZRename this field "kondoria_right2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—š8àöªç¹0
+v
+java:S3008s"ZRename this field "kondoria_right3" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÃÅº*8àöªç¹0
+t
+java:S3008u"XRename this field "kondoria_dead" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤Ø!8àöªç¹0
+q
+java:S3008x"TRename this field "mob_dead1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»¿µÒ8àöªç¹0
+q
+java:S3008y"TRename this field "mob_dead2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’ô†ƒ8àöªç¹0
+p
+java:S3008z"TRename this field "mob_dead3" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÂÓëp8àöªç¹0
+o
+java:S3008‚"QRename this field "bomb_1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­³›Ù8áöªç¹0
+o
+java:S3008ƒ"QRename this field "bomb_2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£´­Ê8áöªç¹0
+v
+java:S3008Š"XRename this field "bomb_exploded" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(îÜú8áöªç¹0
+|
+java:S3008‹"YRename this field "bomb_exploded1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°ÃÄÖùÿÿÿÿ8áöªç¹0
+|
+java:S3008Œ"YRename this field "bomb_exploded2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ì÷°¹ıÿÿÿÿ8áöªç¹0
+€
+java:S3008"]Rename this field "explosion_vertical" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼èÖ·ûÿÿÿÿ8áöªç¹0
+
+java:S3008"^Rename this field "explosion_vertical1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ø­»ºùÿÿÿÿ8áöªç¹0
+
+java:S3008"^Rename this field "explosion_vertical2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÃÚ˜Šıÿÿÿÿ8áöªç¹0
+‚
+java:S3008’"_Rename this field "explosion_horizontal" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ş¯‡…ÿÿÿÿÿ8áöªç¹0
+ƒ
+java:S3008“"`Rename this field "explosion_horizontal1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢ä†ûÿÿÿÿ8áöªç¹0
+~
+java:S3008”"`Rename this field "explosion_horizontal2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§ÿÔ«8áöªç¹0
+‡
+java:S3008–"iRename this field "explosion_horizontal_left_last" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°âÅÑ8áöªç¹0
+ˆ
+java:S3008—"jRename this field "explosion_horizontal_left_last1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²¹å…8áöªç¹0
+
+java:S3008˜"jRename this field "explosion_horizontal_left_last2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡Ñ˜Ãùÿÿÿÿ8áöªç¹0
+ˆ
+java:S3008š"jRename this field "explosion_horizontal_right_last" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒŞª¿8áöªç¹0
+‰
+java:S3008›"kRename this field "explosion_horizontal_right_last1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÕÀªì8âöªç¹0
+‰
+java:S3008œ"kRename this field "explosion_horizontal_right_last2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡²›×8âöªç¹0
+ƒ
+java:S3008"fRename this field "explosion_vertical_top_last" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ı©³*8âöªç¹0
+Š
+java:S3008Ÿ"gRename this field "explosion_vertical_top_last1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†ë¸ùÿÿÿÿ8âöªç¹0
+…
+java:S3008 "gRename this field "explosion_vertical_top_last2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®ˆ±ø8âöªç¹0
+…
+java:S3008¢"gRename this field "explosion_vertical_down_last" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ãòõİ8âöªç¹0
+‹
+java:S3008£"hRename this field "explosion_vertical_down_last1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïÍÈêıÿÿÿÿ8âöªç¹0
+†
+java:S3008¤"hRename this field "explosion_vertical_down_last2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦„õÁ8âöªç¹0
+w
+java:S3008«"YRename this field "brick_exploded" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬¡ŸÍ8âöªç¹0
+}
+java:S3008¬"ZRename this field "brick_exploded1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÖâÃØúÿÿÿÿ8âöªç¹0
+x
+java:S3008­"ZRename this field "brick_exploded2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ô’Óê8âöªç¹0
+{
+java:S3008´"XRename this field "powerup_bombs" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Şƒºßüÿÿÿÿ8âöªç¹0
+w
+java:S3008µ"YRename this field "powerup_flames" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âÄËı8âöªç¹0
+{
+java:S3008¶"XRename this field "powerup_speed" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(©ø¯“øÿÿÿÿ8âöªç¹0
+y
+java:S3008·"[Rename this field "powerup_wallpass" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¨ıíŒ8âöªç¹0
+y
+java:S3008¸"\Rename this field "powerup_detonator" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ååÉ{8âöªç¹0
+y
+java:S3008¹"[Rename this field "powerup_bombpass" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¨î÷8âöªç¹0
+
+java:S3008º"\Rename this field "powerup_flamepass" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÛÉ€úÿÿÿÿ8âöªç¹0
