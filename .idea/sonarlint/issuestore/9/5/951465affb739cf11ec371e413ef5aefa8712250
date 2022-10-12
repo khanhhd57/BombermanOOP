@@ -1,10 +1,0 @@
-
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(—Â¤´úÿÿÿÿ8§ÒŒç¹0
-g
-java:S2095"EUse try-with-resources or close this "Scanner" in a "finally" clause.(þ²²£þÿÿÿÿ8ÁÒŒç¹0
-\
-java:S1118	":Add a private constructor to hide the implicit public one.(‹Œ½¤ùÿÿÿÿ8ÅÒŒç¹0
-]
-java:S1854";Remove this useless assignment to local variable "scanner".(þ²²£þÿÿÿÿ8ÇÒŒç¹0
-N
-java:S1481",Remove this unused "scanner" local variable.(þ²²£þÿÿÿÿ8ÒÒŒç¹0
