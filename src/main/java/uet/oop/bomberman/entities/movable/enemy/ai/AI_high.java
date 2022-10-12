@@ -18,7 +18,6 @@ public class AI_high extends AI{
     public AI_high(Bomber bomber, Enemy e){
         _bomber = bomber;
         _enemy = e;
-<<<<<<< HEAD
         _bombs = bomberman.getBombs(); //tạo bom
     }
 
@@ -70,9 +69,6 @@ public class AI_high extends AI{
                 return calculateColDirection(); //khi tọa đọ x của cả bomber và enemy bằng nhau thì trả về giá trị giúp điển khiển trên háng ngang
         }
     }
-=======
-        _bombs = bomberman.getBoms(); //tạo bom
-    }
 
->>>>>>> origin/master
 }
+

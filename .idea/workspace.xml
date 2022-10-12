@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="35bf8095-e73c-4cdd-b809-21d2ace716cd" name="Changes" comment="chỉnh sửa">
-      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uet/oop/bomberman/entities/movable/Bomber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uet/oop/bomberman/entities/movable/Bomber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uet/oop/bomberman/entities/movable/enemy/ai/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uet/oop/bomberman/entities/movable/enemy/ai/AI.java" afterDir="false" />
+    <list default="true" id="35bf8095-e73c-4cdd-b809-21d2ace716cd" name="Changes" comment="update">
+      <change afterPath="$PROJECT_DIR$/.idea/google-java-format.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/uet/oop/bomberman/entities/movable/enemy/ai/AI_high.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uet/oop/bomberman/entities/movable/enemy/ai/AI_high.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uet/oop/bomberman/entities/movable/enemy/ai/AI_low.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uet/oop/bomberman/entities/movable/enemy/ai/AI_low.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/uet/oop/bomberman/entities/movable/enemy/ai/AI_medium.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uet/oop/bomberman/entities/movable/enemy/ai/AI_medium.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,17 +44,17 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/admin/OneDrive/Máy tính/BTL2-UET-OOP-main&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/admin/OneDrive/Máy tính/BombermanOOP",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="BombermanGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="bomberman.BombermanGame" />
@@ -110,7 +106,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
