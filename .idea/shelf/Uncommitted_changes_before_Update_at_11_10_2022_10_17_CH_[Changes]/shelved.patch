@@ -1,0 +1,459 @@
+Index: src/main/java/uet/oop/bomberman/entities/movable/Bomber.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package uet.oop.bomberman.entities.movable;\r\n\r\nimport javafx.scene.image.Image;\r\nimport javafx.scene.input.KeyCode;\r\nimport uet.oop.bomberman.BombermanGame;\r\nimport uet.oop.bomberman.entities.Character;\r\nimport uet.oop.bomberman.entities.Entity;\r\nimport uet.oop.bomberman.entities.bomb.Bomb;\r\nimport uet.oop.bomberman.entities.items.BombItem;\r\nimport uet.oop.bomberman.entities.items.Item;\r\nimport uet.oop.bomberman.entities.items.SpeedItem;\r\nimport uet.oop.bomberman.graphics.Sprite;\r\n\r\nimport java.awt.*;\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\nimport java.util.Timer;\r\nimport java.util.TimerTask;\r\n\r\npublic class Bomber extends Character {\r\n    private int bombRemain; // khai báo biê \"số bomb dự trữ\"\r\n    private boolean placeBompCommand = false; //quản lý việc đặt bomb (trả về true or false)\r\n    private boolean isAlllowerGoToBom = false; //quản lý việc đi xuyên qua bomb (trả về true or false)\r\n    private final List<Bomb> bombs = new ArrayList<>(); //khai báo list quản lý bom\r\n    private int radius; //khai báo biến bán kính nổ của bom\r\n    private KeyCode direction = null; //khai báo phím keyboard\r\n    private int timeAfterDie = 0; //khai báo thời gian sau khi chết\r\n    private int power;\r\n    public Bomber(int x, int y, Image img){\r\n        super(x, y, img);\r\n        setLayer(1); //chỉ số va chạm của bomber\r\n        setSpeed(3); //tốc độ\r\n        setBombRemain(1); //số bom dự trữ\r\n        setRadius(1); //bán kính nổ\r\n    }\r\n\r\n    public void setRadius(int radius) {\r\n        this.radius = radius;\r\n    }\r\n\r\n    @Override\r\n    public void update(){\r\n        if (direction == KeyCode.LEFT)\r\n            goLeft();\r\n        if (direction == KeyCode.RIGHT)\r\n            goRight();\r\n        if (direction == KeyCode.UP)\r\n            goUp();\r\n        if (direction == KeyCode.DOWN)\r\n            goDown();\r\n        if (placeBompCommand)\r\n            placeBomb();\r\n        for (int i = 0; i < bombs.size(); i++){ //duyệt cái lít của bomb\r\n            Bomb bomb = bombs.get(i);\r\n            if (!bomb.isAlive()){\r\n                bombs.remove(bomb);\r\n                bombRemain++;\r\n            }\r\n        }\r\n        //animate();\r\n        if (!isAlive()){\r\n            timeAfterDie++;\r\n            die();\r\n        }\r\n    }\r\n\r\n    //khai báo các sự kiện về bàn phím\r\n    public void handleKeyPressedEvent(KeyCode keyCode){\r\n        if (keyCode == KeyCode.LEFT || keyCode == KeyCode.RIGHT\r\n            || keyCode == KeyCode.UP || keyCode == KeyCode.DOWN){\r\n            this.direction = keyCode;\r\n        }\r\n        if (keyCode == KeyCode.SPACE)\r\n            placeBompCommand = true;\r\n    }\r\n\r\n    //điều khiển bombẻ di chuyển và đặt bom từ bàn phím (phương thức này sử dụng để load ảnh hiển thị) (xử lý các sự kiện bàn phím)\r\n    public void handleKeyReleasedEvent(KeyCode keyCode){\r\n        if (direction == keyCode){\r\n            if (direction == KeyCode.LEFT){\r\n                img = Sprite.player_left.getFxImage();\r\n            }\r\n            if (direction == KeyCode.RIGHT){\r\n                img = Sprite.player_right.getFxImage();\r\n            }\r\n            if (direction == KeyCode.UP){\r\n                img = Sprite.player_up.getFxImage();\r\n            }\r\n            if (direction == KeyCode.DOWN){\r\n                img = Sprite.player_down.getFxImage();\r\n            }\r\n            direction = null;\r\n        }\r\n        if (keyCode = KeyCode.SPACE){\r\n            placeBompCommand = false;\r\n        }\r\n    }\r\n\r\n    //các load ảnh hiển thị di chuyển\r\n\r\n    @Override\r\n    public void goLeft() {\r\n        super.goLeft();\r\n        img = Sprite.movingSprite(Sprite.player_left, Sprite.player_left_1, Sprite.player_left_2, left++, 20).getFxImage();\r\n    }\r\n\r\n    @Override\r\n    public void goRight() {\r\n        super.goRight();\r\n        img = Sprite.movingSprite(Sprite.player_right, Sprite.player_right_1, Sprite.player_right_2, right++, 20).getFxImage();\r\n    }\r\n\r\n    @Override\r\n    public void goUp() {\r\n        super.goUp();\r\n        img = Sprite.movingSprite(Sprite.player_up, Sprite.player_up_1, Sprite.player_up_2, up++, 20).getFxImage();\r\n    }\r\n\r\n    @Override\r\n    public void goDown() {\r\n        super.goDown();\r\n        img = Sprite.movingSprite(Sprite.player_down, Sprite.player_down_1, Sprite.player_down_2, 20).getFxImage();\r\n    }\r\n\r\n    //phương thức xử lý chức năng đặt bom\r\n    public void placeBomb(){\r\n        if (bombRemain > 0){\r\n            int xB = (int)Math.round((x + 4) / (double) Sprite.SCALED_SIZE); //\r\n            int yB = (int)Math.round((y + 4) / (double) Sprite.SCALED_SIZE); //Tọa độ bom\r\n            for (Bomb bomb : bombs) // duyệt list bombs\r\n                if (xB * Sprite.SCALED_SIZE == bomb.getX() && yB * Sprite.SCALED_SIZE == bomb.getY()) return;\r\n            bombs.add(new Bomb(xB, yB, Sprite.bomb.getFxImage(), radius)); //tạo bom và add vào list bomb\r\n            isAlllowerGoToBom = true; //xuyên qua bom trả về true\r\n            bombRemain--; //trừ đi số lượng bom dự trữ sau khi đã đặt\r\n        }\r\n    }\r\n\r\n    public void setBombRemain(int bombRemain) {\r\n        this.bombRemain = bombRemain;\r\n    }\r\n\r\n    public List<Bomb> getBombs() {\r\n        return bombs;\r\n    }\r\n\r\n    @Override\r\n    public boolean isAlive() {\r\n        return super.isAlive();\r\n    }\r\n\r\n    public void die(){\r\n        if (timeAfterDie == 20) cout--; //kể từ sau khi bom nổ đến khi 20 đơn vị thời gian thì mạng giảm xuống 1\r\n        if (timeAfterDie <= 45){ //load ảnh bomber chết trong 45 đơn vị thời gian\r\n              img = Sprite.movingSprite(Sprite.player_dead1, Sprite.player_dead2,\r\n                        Sprite.player_dead3, timeAfterDie, 20).getFxImage();\r\n        }\r\n    }\r\n\r\n    public Rectangle getBounds(){ //tạo bao cho bomber\r\n        return new Rectangle(desX + 2, desY + 5, Sprite.SCALED_SIZE - 1, Sprite.SCALED_SIZE *3/4);\r\n    }\r\n\r\n    public void handleCollisions(){ //xử lý va chạm cho bomber và các thực thể\r\n        List<Bomb> bombs = bomberman.getBombs(); //tạo list bomb\r\n        Rectangle r1 = bomberman.getBounds(); //tạo bound cho bomber\r\n        boolean bomberIntersectsBom = false; //biến kiểm tra va chạm bomber và bom\r\n        for (Bomb bomb : bombs){\r\n            Rectangle r2 = bomb.getBounds(); //tạo bound cho bomb\r\n            if (r1.intersects(r2)){\r\n                bomberIntersectsBom = true; //trả về true nếu bomber va chạm với bomb\r\n            }\r\n        }\r\n\r\n        //Bomber vs stillObject\r\n        for (Entity stillObject : stillObjects) { //duyệt all thực thể\r\n            Rectangle r2 = stillObject.getBounds(); //tạo bao cho all thực thể\r\n            if (r1.intersects(r2)){ //nếu bomber va chạm với các vật thể th trả về true\r\n                if (bomberman.getLayer() == stillObject.getLayer() && stillObject instanceof Item) { //nếu chỉ số va chạm của bomber = thực thể và thực thể đó là item\r\n                    if (stillObject instanceof BombItem) {\r\n                        startBomb++;\r\n                        bomberman.setBombRemain(startBombn); //set up lại số bom dự trữ\r\n                        stillObjects.remove(stillObject); //xóa vật thể đó khỏi list thực thể (chính là hành động ăn item)\r\n                    } else if (stillObject instanceof SpeedItem) { //tương tự bomb item\r\n                        bomberman.setSpeed(startSpeed);\r\n                        stillObjects.remove(stillObject);\r\n                    }\r\n\r\n                }\r\n            }\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/uet/oop/bomberman/entities/movable/Bomber.java b/src/main/java/uet/oop/bomberman/entities/movable/Bomber.java
+--- a/src/main/java/uet/oop/bomberman/entities/movable/Bomber.java	(revision 40f9aaaaa6ffb633f488b443fd3cfbee3670b2b7)
++++ b/src/main/java/uet/oop/bomberman/entities/movable/Bomber.java	(date 1665500986025)
+@@ -2,13 +2,15 @@
+ 
+ import javafx.scene.image.Image;
+ import javafx.scene.input.KeyCode;
+-import uet.oop.bomberman.BombermanGame;
+ import uet.oop.bomberman.entities.Character;
+ import uet.oop.bomberman.entities.Entity;
+ import uet.oop.bomberman.entities.bomb.Bomb;
+ import uet.oop.bomberman.entities.items.BombItem;
++import uet.oop.bomberman.entities.items.FlameItem;
+ import uet.oop.bomberman.entities.items.Item;
+ import uet.oop.bomberman.entities.items.SpeedItem;
++import uet.oop.bomberman.entities.movable.enemy.Enemy;
++import uet.oop.bomberman.entities.still.Portal;
+ import uet.oop.bomberman.graphics.Sprite;
+ 
+ import java.awt.*;
+@@ -17,6 +19,8 @@
+ import java.util.Timer;
+ import java.util.TimerTask;
+ 
++import static uet.oop.bomberman.BombermanGame.*;
++
+ public class Bomber extends Character {
+     private int bombRemain; // khai báo biê "số bomb dự trữ"
+     private boolean placeBompCommand = false; //quản lý việc đặt bomb (trả về true or false)
+@@ -91,7 +95,7 @@
+             }
+             direction = null;
+         }
+-        if (keyCode = KeyCode.SPACE){
++        if (keyCode == KeyCode.SPACE){
+             placeBompCommand = false;
+         }
+     }
+@@ -119,7 +123,7 @@
+     @Override
+     public void goDown() {
+         super.goDown();
+-        img = Sprite.movingSprite(Sprite.player_down, Sprite.player_down_1, Sprite.player_down_2, 20).getFxImage();
++        img = Sprite.movingSprite(Sprite.player_down, Sprite.player_down_1, Sprite.player_down_2, down++, 20).getFxImage();
+     }
+ 
+     //phương thức xử lý chức năng đặt bom
+@@ -178,15 +182,36 @@
+                 if (bomberman.getLayer() == stillObject.getLayer() && stillObject instanceof Item) { //nếu chỉ số va chạm của bomber = thực thể và thực thể đó là item
+                     if (stillObject instanceof BombItem) {
+                         startBomb++;
+-                        bomberman.setBombRemain(startBombn); //set up lại số bom dự trữ
++                        bomberman.setBombRemain(startBomb); //set up lại số bom dự trữ
+                         stillObjects.remove(stillObject); //xóa vật thể đó khỏi list thực thể (chính là hành động ăn item)
+                     } else if (stillObject instanceof SpeedItem) { //tương tự bomb item
+                         bomberman.setSpeed(startSpeed);
+                         stillObjects.remove(stillObject);
++                    } else if (stillObject instanceof FlameItem) {
++                        startFlame++;
++                        System.out.println(startFlame);
++                        bomberman.setRadius(startFlame);
++                        stillObjects.remove(stillObject);
+                     }
+-
++                    bomberman.stay(); //lệnh yêu cầu bomberman dừng lại (không vượt qua đc)
++                } else if (bomberman.getLayer() == stillObject.getLayer() && stillObject instanceof Portal) { //chỉ số va chạm của bomber bằng thực thể va thực thể là portal
++                    if (enemies.size() == 0) { //số anemy =
++                        //pass level
++                        level++; //lv up
++                        check = true;
++                    }
++                } else if ((bomberman.getLayer() >= stillObject.getLayer()) && !bomberIntersectsBom) { //chỉ số va chạm của bomber > grass tại vị trí đặt bom và người không va chạm với bom
++                    bomberman.move(); //cho phép đi qua bom
++                    isAlllowerGoToBom = false; //trả về false (không cho phép vượt qua bom nữa)
++                } else if ((bomberman.getLayer() >= stillObject.getLayer()) && bomberIntersectsBom) {
++                    if (isAlllowerGoToBom == true)
++                        bomberman.move(); //nếu biến trả về true thì cho phép đi qua bom
++                    else
++                        bomberman.stay(); //nếu biến trả về false thì đứng lại
+                 }
+             }
+         }
+     }
++
++
+ }
+Index: src/main/java/uet/oop/bomberman/entities/movable/enemy/Balloom.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package uet.oop.bomberman.entities.movable.enemy;\r\n\r\npublic class Balloom {\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/uet/oop/bomberman/entities/movable/enemy/Balloom.java b/src/main/java/uet/oop/bomberman/entities/movable/enemy/Balloom.java
+--- a/src/main/java/uet/oop/bomberman/entities/movable/enemy/Balloom.java	(revision 40f9aaaaa6ffb633f488b443fd3cfbee3670b2b7)
++++ b/src/main/java/uet/oop/bomberman/entities/movable/enemy/Balloom.java	(date 1665500986084)
+@@ -1,5 +1,12 @@
+ package uet.oop.bomberman.entities.movable.enemy;
+ 
+-public class Balloom {
++import javafx.scene.image.Image;
+ 
++public class Balloom extends Enemy{
++    public Balloom(int xUnit, int yUnit, Image img){
++        super(xUnit, yUnit, img);
++        setLayer(1); //set chỉ số va chạm của balloom
++        setSpeed(1); //set tốc độ của balloom
++        _ai = new
++    }
+ }
+Index: src/main/java/uet/oop/bomberman/entities/Entity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package uet.oop.bomberman.entities;\r\n\r\nimport java.awt.*;\r\nimport java.awt.Rectangle;\r\nimport javafx.scene.canvas.GraphicsContext;\r\nimport javafx.scene.image.Image;\r\nimport uet.oop.bomberman.graphics.Sprite;\r\n\r\npublic abstract class Entity {\r\n  //Tọa độ X tính từ góc trái trên trong Canvas\r\n  protected int x;\r\n\r\n  //Tọa độ Y tính từ góc trái trên trong Canvas\r\n  protected int y;\r\n\r\n  protected Image img;\r\n  protected int animated = 0; //thời gian để thể hiện sự kiện\r\n  protected int layer;\r\n  protected boolean alive;\r\n\r\n  //Khởi tạo đói tượng, chuyển động từ tọa độ đơn vị sang tọa độ trong Canvas\r\n  public Entity(int xUnit, int yUnit, Image img){\r\n    this.x = xUnit * Sprite.SCALED_SIZE;\r\n    this.y = yUnit * Sprite.SCALED_SIZE;\r\n    this.img = img;\r\n  }\r\n\r\n  public Entity(int x, int y){\r\n    this.x = x;\r\n    this.y = y;\r\n  }\r\n\r\n  //hiển thị hình ảnh lên Game thông qua ảnh, toạ độ x, y\r\n  public void render(GraphicsContext gc){\r\n    gc.drawImage(img, x, y + 30);\r\n  }\r\n\r\n  public abstract void update();\r\n\r\n  public int getX() {\r\n    return x;\r\n  }\r\n\r\n  public int getY() {\r\n    return y;\r\n  }\r\n\r\n  //trả về số va chạm của đối tượng\r\n\r\n  public int getLayer() {\r\n    return layer;\r\n  }\r\n\r\n  //Cài đặt chỉ số va chạm của đối tượng (sử dụng để xử lý va chạm)\r\n\r\n  public void setLayer(int layer) {\r\n    this.layer = layer;\r\n  }\r\n\r\n  //khởi tạo phương thức tra về Alive\r\n\r\n  public void setAlive(boolean alive) {\r\n    this.alive = alive;\r\n  }\r\n\r\n  //Tạo hit bõ cho đối tượng, sử dụng để thma gia các va chạm\r\n  public Rectangle getBounds(){\r\n    return new Rectangle(x, y, Sprite.SCALED_SIZE, Sprite.SCALED_SIZE);\r\n  }\r\n\r\n  //TRả về kết quả của Alive(sống hoạc chết)\r\n  public boolean isAlive(){\r\n    return alive;\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/uet/oop/bomberman/entities/Entity.java b/src/main/java/uet/oop/bomberman/entities/Entity.java
+--- a/src/main/java/uet/oop/bomberman/entities/Entity.java	(revision 40f9aaaaa6ffb633f488b443fd3cfbee3670b2b7)
++++ b/src/main/java/uet/oop/bomberman/entities/Entity.java	(date 1665496538975)
+@@ -1,7 +1,6 @@
+ package uet.oop.bomberman.entities;
+ 
+ import java.awt.*;
+-import java.awt.Rectangle;
+ import javafx.scene.canvas.GraphicsContext;
+ import javafx.scene.image.Image;
+ import uet.oop.bomberman.graphics.Sprite;
+@@ -68,7 +67,7 @@
+     return new Rectangle(x, y, Sprite.SCALED_SIZE, Sprite.SCALED_SIZE);
+   }
+ 
+-  //TRả về kết quả của Alive(sống hoạc chết)
++  //TRả về kết quả của Alive(sống hoặc chết)
+   public boolean isAlive(){
+     return alive;
+   }
+Index: src/main/java/uet/oop/bomberman/entities/movable/enemy/ai/AI_low.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/uet/oop/bomberman/entities/movable/enemy/ai/AI_low.java b/src/main/java/uet/oop/bomberman/entities/movable/enemy/ai/AI_low.java
+new file mode 100644
+--- /dev/null	(date 1665500986055)
++++ b/src/main/java/uet/oop/bomberman/entities/movable/enemy/ai/AI_low.java	(date 1665500986055)
+@@ -0,0 +1,8 @@
++package uet.oop.bomberman.entities.movable.enemy.ai;
++
++public class AI_low extends AI{
++    @Override
++    public int caculateDirection() {
++        return random.nextInt(4); //trả về 1 số bất kì từ 0 - 3
++    }
++}
+Index: src/main/java/uet/oop/bomberman/entities/movable/enemy/ai/AI_medium.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/uet/oop/bomberman/entities/movable/enemy/ai/AI_medium.java b/src/main/java/uet/oop/bomberman/entities/movable/enemy/ai/AI_medium.java
+new file mode 100644
+--- /dev/null	(date 1665500986095)
++++ b/src/main/java/uet/oop/bomberman/entities/movable/enemy/ai/AI_medium.java	(date 1665500986095)
+@@ -0,0 +1,48 @@
++package uet.oop.bomberman.entities.movable.enemy.ai;
++
++import uet.oop.bomberman.entities.movable.Bomber;
++import uet.oop.bomberman.entities.movable.enemy.Enemy;
++
++public class AI_medium extends AI{
++    Bomber _bomber;
++
++    Enemy _enemy;
++
++    public AI_medium(Bomber bomber, Enemy enemy){
++        _bomber = bomber;
++        _enemy = enemy;
++    }
++
++    @Override
++    public int caculateDirection() {
++        int vertical = random.nextInt(2);
++
++        if (vertical == 1) {
++            if (caculateColDirection() != -1)
++                return caculateColDirection();
++            else
++                return caculateRowDirection();
++        } else {
++            if (caculateRowDirection() != -1)
++                return caculateRowDirection();
++            else
++                return caculateColDirection();
++        }
++    }
++
++    protected int caculateColDirection(){
++        if (_bomber.getX() < _enemy.getX())
++            return 3;
++        else if (_bomber.getX() > _enemy.getX())
++            return 1;
++        return -1;
++    }
++
++    protected int caculateRowDirection(){
++        if (_bomber.getY() < _enemy.getY())
++            return 0;
++        else if (_bomber.getY() > _enemy.getY())
++            return 2;
++        return -1;
++    }
++}
+Index: src/main/java/module-info.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>module uet.oop.bomberman {\r\n  requires javafx.controls;\r\n  requires javafx.fxml;\r\n  requires java.desktop;\r\n\r\n  opens uet.oop.bomberman to javafx.fxml;\r\n  exports uet.oop.bomberman;\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/module-info.java b/src/main/java/module-info.java
+--- a/src/main/java/module-info.java	(revision 40f9aaaaa6ffb633f488b443fd3cfbee3670b2b7)
++++ b/src/main/java/module-info.java	(date 1665496539101)
+@@ -2,6 +2,8 @@
+   requires javafx.controls;
+   requires javafx.fxml;
+   requires java.desktop;
++    requires jfxrt;
++  requires rt;
+ 
+   opens uet.oop.bomberman to javafx.fxml;
+   exports uet.oop.bomberman;
+Index: src/main/java/uet/oop/bomberman/entities/movable/enemy/ai/AI_high.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/uet/oop/bomberman/entities/movable/enemy/ai/AI_high.java b/src/main/java/uet/oop/bomberman/entities/movable/enemy/ai/AI_high.java
+new file mode 100644
+--- /dev/null	(date 1665500986042)
++++ b/src/main/java/uet/oop/bomberman/entities/movable/enemy/ai/AI_high.java	(date 1665500986042)
+@@ -0,0 +1,24 @@
++package uet.oop.bomberman.entities.movable.enemy.ai;
++
++import uet.oop.bomberman.entities.bomb.Bomb;
++import uet.oop.bomberman.entities.movable.Bomber;
++import uet.oop.bomberman.entities.movable.enemy.Enemy;
++
++import java.util.List;
++
++import static uet.oop.bomberman.BombermanGame.bomberman;
++
++public class AI_high extends AI{
++    Bomber _bomber; //khai báo bomber
++
++    Enemy _enemy; //khai báo enemy
++
++    List<Bomb> _bombs; //Tạo 1 list về Bomb (cho tTH sau khi BomItem sẽ có nhiều đối tượng Bomb trên map)
++
++    public AI_high(Bomber bomber, Enemy e){
++        _bomber = bomber;
++        _enemy = e;
++        _bombs = bomberman.getBoms(); //tạo bom
++    }
++
++}
+Index: src/main/java/uet/oop/bomberman/BombermanGame.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package uet.oop.bomberman;\r\n\r\nimport javafx.animation.AnimationTimer;\r\nimport javafx.application.Application;\r\nimport javafx.scene.Group;\r\nimport javafx.scene.Scene;\r\nimport javafx.scene.canvas.Canvas;\r\nimport javafx.scene.canvas.GraphicsContext;\r\nimport javafx.scene.layout.AnchorPane;\r\nimport javafx.scene.shape.Rectangle;\r\nimport javafx.stage.Stage;\r\nimport uet.oop.bomberman.entities.bomb.Bomb;\r\nimport uet.oop.bomberman.entities.movable.Bomber;\r\nimport uet.oop.bomberman.entities.still.Grass;\r\nimport uet.oop.bomberman.graphics.Sprite;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\nimport java.util.Scanner;\r\n\r\npublic class BombermanGame extends Application {\r\n\r\n  public static int HEIGHT; //khai báo biến chỉ chỉ số chiều cao\r\n  public static int WIDTH; //khai báo bến ch chỉ số chiều rộng\r\n  public static int level = 1; //khai báo lv\r\n  public static GraphicsContext gc; //gọi clas GraphicsContext (về đồ họa 2D)\r\n  private Canvas canvas; //tạo bản đồ, set tọa độ trong canvas\r\n  public static Scanner scanner; //lớp scanner\r\n  public static final List<Enemy> enemies = new ArrayList<>(); //lít enemy\r\n  public static final List<Grass> stillObjects = new ArrayList<uet.oop.bomberman.entities.still.Grass>(); //stillObj sẽ là đại diện cho mọi thực thể trong game\r\n  public static final List<Flame> flameList = new ArrayList<>(); //list đại diện cho flame\r\n  public static int startBomb = 1; //chỉ số tăng thêm bom khi ăn bombitem\r\n  public static int startSpeed = 8; //chỉ số speed đạt được khi ăn speeditem\r\n  public static int startFlame = 1; //chỉ số bán kính flame tăng thêm khi ăn flameitem\r\n  public static int time = 300;\r\n  public static int score = 0;\r\n  public static int xStart; //tọa độ x ban đầu của bomberman\r\n  public static int yStart; //tọa độ y ban đầu của bomberman\r\n  public static Bomber bomberman; //bomberman được sử dụng để gọi các phương thức lớp Bomber\r\n  public static int cout = 10; //số mạng\r\n  public static int countTime = 0;\r\n  public static boolean check = false;\r\n  public static AnchorPane ro = new AnchorPane(); //ro đại diện cho chư năng load các vùng cũng như ảnh text của toàn game\r\n  public static JPANEL jpanel = new JPANEL(); //để gọi các phương thức lớp JPANEL (liên quan đến setup hình ảnh)\r\n\r\n  public static void main(String[] args) {\r\n    Application.launch(BombermanGame.class); //chạy giao diện đồ họa\r\n  }\r\n\r\n  @Override\r\n  public void start(Stage stage) {\r\n    canvas = new Canvas(Sprite.SCALED_SIZE * WIDTH, Sprite.SCALED_SIZE * HEIGHT + 25);\r\n    gc = canvas.getGraphicsContext2D();\r\n    Group root = new Group();\r\n    root.getChildren().add(canvas);\r\n    ro.getChildren().addAll(new Rectangle(2, 3));\r\n    jpanel.setPanel();\r\n    root.getChildren().add(ro);\r\n    Scene scene = new Scene(root);\r\n    stage.setScene();\r\n    stage.setResizable(false);\r\n    stage.show();\r\n\r\n    AnimationTimer timer = (l) -> {\r\n      if (check == true) {\r\n        FileLevelLoader.;\r\n        check = false;\r\n      }\r\n      if (cout == 0)\r\n        this.stop();\r\n      render();\r\n      update();\r\n    };\r\n    timer.start();\r\n    scene.setOnKeyPressed(event -> bomberman.handleKeyPressedEvent(event.getCode())); //sự kiện nhập từ bàn phím\r\n    scene.setOnKeyReleased(event -> bomberman.handleKeyReleasedEvent(event.getCode())); //xử lý sự kiện nhập từ bàn phím\r\n  }\r\n\r\n  public void update(){\r\n    if (countTime % 60 == 0) time--;\r\n    jpanel.setTimes(time); //set time\r\n    jpanel.setPoint(score); //set điểm\r\n    jpanel.setLives(cout); //set mạng\r\n    for (int i = 0; i < enemies.size(); i++) //duyệt các sự kiện của enemy\r\n      enemies.get(i).update(); //chạy các sự kiện của enemy\r\n    for (int i = 0; i < flameList.size(); i++) //duyệt các sự kiện của flame\r\n      flameList.get(i).update(); //chạy các sưk kiện của flame\r\n    bomberman.update(); //chạy các sự kiện của bomber\r\n    List<Bomb> bombs = bomberman.getBombs(); //tạo list bombs\r\n    for (Bomb bomb : bombs)\r\n      bomb.update(); //chạy các sự kiện của bomb\r\n\r\n    for (int i = 0; i <stillObjects.size(); i++) //duyệt all thực thể\r\n      stillObjects.get(i).update(); //chạy các sự kiện của thực thể\r\n    bomberman.handleCollisions(); //chạy các sự kiện va chạm với bomber, thực thể, ...vv\r\n    bomberman.checkCollisionsFlame(); //chạy các sự kiện va chạm vơ flame\r\n  }\r\n\r\n  public void render(){ //render, chạy các hình ảnh để hiển thị lên game\r\n    gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());\r\n    for (int i = stillObjects.size() - 1; i >= 0; i--)\r\n      stillObjects.get(i).render(gc);\r\n    enemies.forEach(g -> g.render(gc));\r\n    List<Bomb> bombs = bomberman.getBombs();\r\n    for (Bomb bomb : bombs)\r\n      bomb.render(gc);\r\n    coutTime();\r\n    bomberman.render(gc);\r\n    flameList.forEach(g -> g.render(gc));\r\n  }\r\n\r\n  public void coutTime(){\r\n    if (countTime < 400*60)\r\n      countTime++;\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/uet/oop/bomberman/BombermanGame.java b/src/main/java/uet/oop/bomberman/BombermanGame.java
+--- a/src/main/java/uet/oop/bomberman/BombermanGame.java	(revision 40f9aaaaa6ffb633f488b443fd3cfbee3670b2b7)
++++ b/src/main/java/uet/oop/bomberman/BombermanGame.java	(date 1665496539069)
+@@ -9,8 +9,11 @@
+ import javafx.scene.layout.AnchorPane;
+ import javafx.scene.shape.Rectangle;
+ import javafx.stage.Stage;
++import uet.oop.bomberman.Map.FileLevelLoader;
+ import uet.oop.bomberman.entities.bomb.Bomb;
++import uet.oop.bomberman.entities.bomb.Flame;
+ import uet.oop.bomberman.entities.movable.Bomber;
++import uet.oop.bomberman.entities.movable.enemy.Enemy;
+ import uet.oop.bomberman.entities.still.Grass;
+ import uet.oop.bomberman.graphics.Sprite;
+ 
+@@ -57,13 +60,13 @@
+     jpanel.setPanel();
+     root.getChildren().add(ro);
+     Scene scene = new Scene(root);
+-    stage.setScene();
++    stage.setScene(scene);
+     stage.setResizable(false);
+     stage.show();
+ 
+     AnimationTimer timer = (l) -> {
+       if (check == true) {
+-        FileLevelLoader.;
++        FileLevelLoader.createMap;
+         check = false;
+       }
+       if (cout == 0)
+Index: src/main/java/uet/oop/bomberman/Map/FileLevelLoader.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package uet.oop.bomberman.Map;\r\n\r\npublic class FileLevelLoader {\r\n    public void createMap(){\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/uet/oop/bomberman/Map/FileLevelLoader.java b/src/main/java/uet/oop/bomberman/Map/FileLevelLoader.java
+--- a/src/main/java/uet/oop/bomberman/Map/FileLevelLoader.java	(revision 40f9aaaaa6ffb633f488b443fd3cfbee3670b2b7)
++++ b/src/main/java/uet/oop/bomberman/Map/FileLevelLoader.java	(date 1665500986068)
+@@ -1,7 +1,81 @@
+ package uet.oop.bomberman.Map;
+ 
++import uet.oop.bomberman.Layer;
++import uet.oop.bomberman.entities.items.FlameItem;
++import uet.oop.bomberman.entities.items.SpeedItem;
++import uet.oop.bomberman.entities.items.BombItem;
++import uet.oop.bomberman.entities.movable.Bomber;
++import uet.oop.bomberman.entities.movable.enemy.Balloom;
++import uet.oop.bomberman.entities.movable.enemy.Doll;
++import uet.oop.bomberman.entities.movable.enemy.Kondoria;
++import uet.oop.bomberman.entities.movable.enemy.Oneal;
++import uet.oop.bomberman.entities.still.Brick;
++import uet.oop.bomberman.entities.still.Grass;
++import uet.oop.bomberman.entities.still.Portal;
++import uet.oop.bomberman.entities.still.Wall;
++import uet.oop.bomberman.graphics.Sprite;
++import java.io.*;
++import java.util.Scanner;
++import static uet.oop.bomberman.BombermanGame.*;
++
+ public class FileLevelLoader {
+     public void createMap(){
++        try {
++            Scanner scanner = new Scanner(new FileReader("res/levels/level" + level + ".txt")); //đọc file txt chứa thông tin về lv map
++        } catch (FileNotFoundException e) { //bắt ngoại lệ
++            e.printStackTrace();
++        }
+ 
++        scanner.nextInt(); //nhận vào số nguyên
++        HEIGHT = scanner.nextInt(); //nhận vào chỉ số chiều cao map
++        WIDTH = scanner.nextInt(); //nhận vào chỉ số chiều rộng map
++        scanner.nextInt();
++        for (int i = 0; i < HEIGHT; i++){ //quét các dòng tiếp theo rồi nhập hết vào string r để duyệt sau đó xuất ảnh dể load map
++            String r = scanner.nextLine();
++            for (int j = 0; j < WIDTH; j++){
++                if (r.charAt(j) == '#') {
++                    stillObjects.add(new Wall(j, i, Sprite.wall.getFxImage()));
++                } else {
++                    stillObjects.add(new Grass(j, i, Sprite.grass.getFxImage()));
++                    if (r.charAt(j) == '*') {
++                        stillObjects.add(new Brick(j, i, Sprite.brick.getFxImage()));
++                    }
++                    if (r.charAt(j) == 'x') {
++                        stillObjects.add(new Portal(j, i, Sprite.portal.getFxImage()));
++                        stillObjects.add(new Brick(j, i, Sprite.brick.getFxImage()));
++                    }
++                    if (r.charAt(j) == '1') {
++                        enemies.add(new Balloom(j, i, Sprite.balloom_left1.getFxImage()));
++                    }
++                    if (r.charAt(j) == '2') {
++                        enemies.add(new Oneal(j, i, Sprite.oneal_left1.getFxImage()));
++                    }
++                    if (r.charAt(j) == '3') {
++                        enemies.add(new Doll(j, i, Sprite.doll_left1.getFxImage()));
++                    }
++                    if (r.charAt(j) == '4') {
++                        enemies.add(new Kondoria(j, i, Sprite.doll_left1.getFxImage()));
++                    }
++                    if (r.charAt(j) == 'b') {
++                        stillObjects.add(new BombItem(j, i, Sprite.powerup_bombs.getFxImage()));
++                        stillObjects.add(new Brick(j, i, Sprite.brick.getFxImage()));
++                    }
++                    if (r.charAt(j) == 'f') {
++                        stillObjects.add(new FlameItem(j, i, Sprite.powerup_flames.getFxImage()));
++                        stillObjects.add(new Brick(j, i, Sprite.brick.getFxImage()));
++                    }
++                    if (r.charAt(j) == 's') {
++                        stillObjects.add(new SpeedItem(j, i, Sprite.powerup_speed.getFxImage()));
++                        stillObjects.add(new Brick(j, i, Sprite.brick.getFxImage()));
++                    }
++                    if (r.charAt(j) == 'p') {
++                        bomberman = new Bomber(j, i, Sprite.player_right.getFxImage());
++                        xStart = j;
++                        yStart = i;
++                    }
++                }
++            }
++        }
++        stillObjects.sort(new Layer()); //các thực thể đc tạo chỉ số va
+     }
+ }
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1665495381168)
++++ b/.idea/vcs.xml	(date 1665495381168)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: src/main/java/uet/oop/bomberman/sound/Sound.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/uet/oop/bomberman/sound/Sound.java b/src/main/java/uet/oop/bomberman/sound/Sound.java
+new file mode 100644
+--- /dev/null	(date 1665496539055)
++++ b/src/main/java/uet/oop/bomberman/sound/Sound.java	(date 1665496539055)
+@@ -0,0 +1,29 @@
++package uet.oop.bomberman.sound;
++
++import javax.sound.sampled.AudioSystem;
++import javax.sound.sampled.Clip;
++import javax.sound.sampled.AudioInputStream;
++import sun.applet.Main;
++
++public class Sound {
++    public static void play(String sound){
++        new Thread(new Runnable() {
++            @Override
++            public void run() {
++                try {
++                    Clip clip = AudioSystem.getClip();
++                    AudioInputStream inputStream = AudioSystem.getAudioInputStream(
++                            Main.class.getResourceAsStream("/sound/" + sound + ".wav"));
++                    clip.open(inputStream);
++                    clip.start();
++                } catch (Exception e){
++                    System.out.println(e.getMessage());
++                }
++            }
++        }).start();
++    }
++
++    public static void stop(String sound){
++
++    }
++}
