@@ -209,7 +209,35 @@ public class Bomber extends Character {
                     else
                         bomberman.stay(); //nếu biến trả về false thì đứng lại
                 }
+                else
+                    bomberman.stay();
+                break;
             }
+        }
+
+        //Bomber vs Enemy
+        for (Enemy enemy : enemies) {
+            Rectangle r2 = enemy.getBounds(); //tạo bound cho enemy
+            if (r1.intersects(r2)) { //điều kiên bomber va chạm enemy
+                bomberman.setAlive(false); //cài bomber chết
+                if (bomberman.isAlive() == false){ //thuộc tính alive trả về false (chết)
+                    if (cout >= 0) { //nếu vẫn còn mạng
+                        Timer count = new Timer(); //chạy lại trò chơi
+                        count.schedule(new TimerTask() {
+                            @Override
+                            public void run() {
+                                bomberman = new Bomber(1, 1, Sprite.player_right.getFxImage()); //tạo lại bomberman mới
+                                count.cancel();
+                            }
+                        }, 500, 1);
+                    }
+                }
+            }
+        }
+
+        //Enemies vs Bomb
+        for (Enemy enemy : enemies) { //duyệt list enemy
+
         }
     }
 

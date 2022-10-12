@@ -4,6 +4,7 @@ import uet.oop.bomberman.entities.movable.Bomber;
 import uet.oop.bomberman.entities.movable.enemy.Enemy;
 
 public class AI_medium extends AI{
+    //tương tự AI_high
     Bomber _bomber;
 
     Enemy _enemy;
@@ -14,7 +15,7 @@ public class AI_medium extends AI{
     }
 
     @Override
-    public int caculateDirection() {
+    public int calculateDirection() {
         int vertical = random.nextInt(2);
 
         if (vertical == 1) {
