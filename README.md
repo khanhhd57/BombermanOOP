@@ -2,7 +2,6 @@
 bài tập lớn OOP Bomberman
 
 # Developer
-Nhóm CB BOIZ:
 
 Hà Duy Khánh - 21021658.
 
