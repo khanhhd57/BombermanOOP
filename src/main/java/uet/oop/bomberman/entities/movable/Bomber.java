@@ -237,9 +237,67 @@ public class Bomber extends Character {
 
         //Enemies vs Bomb
         for (Enemy enemy : enemies) { //duyệt list enemy
+            Rectangle r2 = enemy.getBounds(); //tạo bound cho enemy
+            for (Bomb bomb : bombs) { //duyệt list bomb
+                Rectangle r3 = bomb.getBounds(); //tạo bound cho bomb
+                if (r2.intersects(r3)) { //enemy chạm vào bomb
+                    enemy.stay(); //enemy không vượt qua đc bomb
+                    break;
+                }
+            }
+        }
 
+        //Enemies vs StillObjects
+        for (Enemy enemy : enemies) {
+            Rectangle r2 = enemy.getBounds();
+            for (Entity stillObject : stillObjects) {
+                Rectangle r3 = stillObject.getBounds();
+                if (r2.intersects(r3)) {
+                    if (enemy.getLayer() >= stillObject.getLayer()) {
+                        enemy.move();
+                    } else {
+                        enemy.stay();
+                    }
+                    break;
+                }
+            }
         }
     }
 
+    //va chạm của flame
+    public void checkCollisionFlame(){
+        for (int i = 0; i < flameList.size(); i++) { // duyệt list của flame
+            Rectangle r1 = flameList.get(i).getBounds(); // tạo bound cho các flame
+            for (int j = 0; j < stillObjects.size(); j++) { // duyệt all thực thể
+                Rectangle r2 = stillObjects.get(j).getBounds(); // tạo bound cho all thực thể
+                if (r1.intersects(r2) && !(stillObjects.get(j) instanceof Item)) // nếu flame va chạm thực thể và thực thể khác item
+                    stillObjects.get(j).setAlive(false); // những thực thể có thuộc tính alive sẽ dc set false -> brick, bomber, enemy sẽ bị xóa (phương thức xóa với điều kiện isAlive trả về alive = false đã dc cài riêng tại các class cụ thể)
+            }
+            for (int j = 0; j < enemies.size(); j++) { // duyệt list của enemy
+                Rectangle r2 = enemies.get(j).getBounds();// tạo bound cho enemy
+                if (r1.intersects(r2)){ // nếu flame va chạm enemy
+                    //Sound.play("enemy_die"); // âm quái chết
+                    enemies.get(j).setAlive(false);
+                }
+            }
+            Rectangle r2 = bomberman.getBounds(); // tạo bound cho bomber
+            if (r1.intersects(r2)) { // flame va chạm bomber
+                bomberman.setAlive(false); // set thuộc tính alive về false
+                //Sound.play("bomberman_die"); // âm kết thúc
+                if (bomberman.isAlive() == false) { // dkien bomber chết
+                    if (cout >= 0) { // mạng vẫn > 0
+                        Timer count = new Timer(); // cài lại game mới
+                        count.schedule(new TimerTask() {
+                            @Override
+                            public void run() {
+                                bomberman = new Bomber(1, 1, Sprite.player_right.getFxImage()); // set up player mới
+                                count.cancel();
+                            }
+                        }, 800, 1);
+                    }
 
+                }
+            }
+        }
+    }
 }

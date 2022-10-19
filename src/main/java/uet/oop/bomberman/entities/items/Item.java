@@ -1,8 +1,7 @@
 package uet.oop.bomberman.entities.items;
 
 import uet.oop.bomberman.entities.still.StillEntity;
-
-import java.awt.*;
+import javafx.scene.image.Image;
 
 public abstract class Item extends StillEntity {
     public Item(int xUnit, int yUnit, Image img){

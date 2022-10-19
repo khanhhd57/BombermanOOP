@@ -17,9 +17,8 @@ import uet.oop.bomberman.graphics.Sprite;
 import java.io.*;
 import java.util.Scanner;
 import static uet.oop.bomberman.BombermanGame.*;
-
 public class FileLevelLoader {
-    public void createMap(){
+    public static void createMap(){
         try {
             Scanner scanner = new Scanner(new FileReader("res/levels/level" + level + ".txt")); //đọc file txt chứa thông tin về lv map
         } catch (FileNotFoundException e) { //bắt ngoại lệ

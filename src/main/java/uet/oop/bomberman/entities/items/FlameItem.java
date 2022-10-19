@@ -1,6 +1,6 @@
 package uet.oop.bomberman.entities.items;
 
-import java.awt.*;
+import javafx.scene.image.Image;
 
 public class FlameItem extends Item{
 

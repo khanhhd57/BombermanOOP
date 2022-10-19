@@ -34,6 +34,22 @@ public class JPANEL extends AnchorPane {
         labelLives.setTextFill(BLACK);
     }
     public void setPanel(){
-        BombermanGame.ro.getChildren().addAll
+        BombermanGame.ro.getChildren().addAll(labelTime, labelPoint, labelLives);
+    }
+
+    public void setLevel(int t) {
+        labelLevel.setText("LEVEL : " + t);
+    }
+
+    public void setTimes(int t) {
+        labelTime.setText("TIMES : "+t);
+    }
+
+    public void setPoint(int t) {
+        labelPoint.setText("POINT : "+t);
+    }
+
+    public void setLives(int t) {
+        labelLives.setText("LIVES : "+t);
     }
 }

@@ -10,6 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import uet.oop.bomberman.Map.FileLevelLoader;
+import uet.oop.bomberman.entities.Entity;
 import uet.oop.bomberman.entities.bomb.Bomb;
 import uet.oop.bomberman.entities.bomb.Flame;
 import uet.oop.bomberman.entities.movable.Bomber;
@@ -30,7 +31,7 @@ public class BombermanGame extends Application {
   private Canvas canvas; //tạo bản đồ, set tọa độ trong canvas
   public static Scanner scanner; //lớp scanner
   public static final List<Enemy> enemies = new ArrayList<>(); //lít enemy
-  public static final List<Grass> stillObjects = new ArrayList<uet.oop.bomberman.entities.still.Grass>(); //stillObj sẽ là đại diện cho mọi thực thể trong game
+  public static final List<Entity> stillObjects = new ArrayList<>(); //stillObj sẽ là đại diện cho mọi thực thể trong game
   public static final List<Flame> flameList = new ArrayList<>(); //list đại diện cho flame
   public static int startBomb = 1; //chỉ số tăng thêm bom khi ăn bombitem
   public static int startSpeed = 8; //chỉ số speed đạt được khi ăn speeditem
@@ -52,6 +53,7 @@ public class BombermanGame extends Application {
 
   @Override
   public void start(Stage stage) {
+    FileLevelLoader.createMap();
     canvas = new Canvas(Sprite.SCALED_SIZE * WIDTH, Sprite.SCALED_SIZE * HEIGHT + 25);
     gc = canvas.getGraphicsContext2D();
     Group root = new Group();
@@ -64,15 +66,17 @@ public class BombermanGame extends Application {
     stage.setResizable(false);
     stage.show();
 
-    AnimationTimer timer = (l) -> {
-      if (check == true) {
-        FileLevelLoader.createMap;
-        check = false;
+    AnimationTimer timer = new AnimationTimer() { // set ván mới
+      @Override
+      public void handle(long l) {
+        if (check == true) {
+          FileLevelLoader.createMap();
+          check = false;
+        }
+        if (cout == 0) this.stop();
+        render();
+        update();
       }
-      if (cout == 0)
-        this.stop();
-      render();
-      update();
     };
     timer.start();
     scene.setOnKeyPressed(event -> bomberman.handleKeyPressedEvent(event.getCode())); //sự kiện nhập từ bàn phím
@@ -96,7 +100,7 @@ public class BombermanGame extends Application {
     for (int i = 0; i <stillObjects.size(); i++) //duyệt all thực thể
       stillObjects.get(i).update(); //chạy các sự kiện của thực thể
     bomberman.handleCollisions(); //chạy các sự kiện va chạm với bomber, thực thể, ...vv
-    bomberman.checkCollisionsFlame(); //chạy các sự kiện va chạm vơ flame
+    bomberman.checkCollisionFlame(); //chạy các sự kiện va chạm vơ flame
   }
 
   public void render(){ //render, chạy các hình ảnh để hiển thị lên game

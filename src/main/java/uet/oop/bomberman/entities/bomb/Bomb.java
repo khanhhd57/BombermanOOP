@@ -36,6 +36,6 @@ public class Bomb extends Character {
     alive = false; /* tất cả những thực thể có thể bị tiêu diệt bởi Flame
                     (những thực thể đó đều có thuộc tính aliva),
                     sau khi va chạm sẽ trả về alive = flase*/
-    Sound.play("bom_explode"); //âm thanh bomb nổ
+    //Sound.play("bom_explode"); //âm thanh bomb nổ
   }
 }
