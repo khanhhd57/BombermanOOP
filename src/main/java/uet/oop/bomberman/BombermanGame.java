@@ -1,5 +1,6 @@
 package uet.oop.bomberman;
 
+import javafx.scene.shape.Rectangle;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -7,20 +8,18 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import uet.oop.bomberman.Map.FileLevelLoader;
-import uet.oop.bomberman.entities.Entity;
+import uet.oop.bomberman.entities.*;
 import uet.oop.bomberman.entities.bomb.Bomb;
 import uet.oop.bomberman.entities.bomb.Flame;
 import uet.oop.bomberman.entities.movable.Bomber;
 import uet.oop.bomberman.entities.movable.enemy.Enemy;
-import uet.oop.bomberman.entities.still.Grass;
 import uet.oop.bomberman.graphics.Sprite;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import uet.oop.bomberman.sound.Sound;
 
 public class BombermanGame extends Application {
 
@@ -48,6 +47,7 @@ public class BombermanGame extends Application {
   public static JPANEL jpanel = new JPANEL(); //để gọi các phương thức lớp JPANEL (liên quan đến setup hình ảnh)
 
   public static void main(String[] args) {
+    Sound.play("soundtrack");
     Application.launch(BombermanGame.class); //chạy giao diện đồ họa
   }
 
