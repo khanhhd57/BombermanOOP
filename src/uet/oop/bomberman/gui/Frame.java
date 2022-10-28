@@ -21,7 +21,7 @@ public class Frame extends JFrame {
 	private Game _game;
 
 	public Frame() {
-		URL a = Frame.class.getResource("/demo.png");
+		URL a = Frame.class.getResource("/icon.png");
 		try {
 			BufferedImage image = ImageIO.read(a);
 			setIconImage(image);
