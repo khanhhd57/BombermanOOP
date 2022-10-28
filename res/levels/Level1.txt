@@ -10,7 +10,7 @@
 # # # # #*# # # #*#*# # # # # #
 #*    **  *       *           #
 # #*# # # # # # #*# # # # # # #
-#           *   *  *          #
+#      4    *   *  *          #
 ###############################
 
 
@@ -28,8 +28,11 @@ x - Portal
 
 Character:
 p - Bomber
-1 - Balloon
-2 - Oneal
+    Enemy:
+    1 - Balloon
+    2 - Oneal
+    3 - Doll
+    4 - Kondoria
 
 Items:
 b - Bomb Item
