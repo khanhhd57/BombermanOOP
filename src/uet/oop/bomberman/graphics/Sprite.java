@@ -53,7 +53,7 @@ public class Sprite {
 	| Character
 	|--------------------------------------------------------------------------
 	 */
-	//BALLOM
+	//BALLOOM
 	public static Sprite balloom_left1 = new Sprite(16, 9, 0, SpriteSheet.tiles, 16, 16);
 	public static Sprite balloom_left2 = new Sprite(16, 9, 1, SpriteSheet.tiles, 16, 16);
 	public static Sprite balloom_left3 = new Sprite(16, 9, 2, SpriteSheet.tiles, 16, 16);
