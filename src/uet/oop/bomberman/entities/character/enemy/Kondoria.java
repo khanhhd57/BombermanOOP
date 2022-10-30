@@ -23,7 +23,7 @@ public class Kondoria extends Enemy {
     }
 
     public Kondoria(int x, int y, Board board) {
-        super(x, y, board, Sprite.kondoria_dead, Game.getBomberSpeed()/2, 300);
+        super(x, y, board, Sprite.kondoria_dead, Game.getBomberSpeed(), 300);
 
         _sprite = Sprite.kondoria_left1;
 
