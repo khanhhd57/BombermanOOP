@@ -42,8 +42,6 @@ public abstract class Entity implements IRender {
 
 	/**
 	 * Phương thức này được gọi để xử lý khi hai entity va chạm vào nhau
-	 * @param e
-	 * @return
 	 */
 	public abstract boolean collide(Entity e);
 	
