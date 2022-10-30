@@ -40,6 +40,7 @@ public class FileLevelLoader extends LevelLoader {
 		// cập nhật các giá trị đọc được vào _width, _height, _level, _map
 		BufferedReader br = null;
 		URL Path = FileLevelLoader.class.getResource("/levels/Level" + level + ".txt");
+		//bắt ngoại lệ đọc file load map
 		try {
 			br = new BufferedReader(new InputStreamReader(Path.openStream()));
 			String[] firstLine = br.readLine().split(" ");

@@ -16,12 +16,6 @@ public class Message extends Entity {
 
 	/**
 	 * Hiển thị message khi tiêu diệt được Enemy ví dụ (+100)
-	 * @param message
-	 * @param x
-	 * @param y
-	 * @param duration
-	 * @param color
-	 * @param size
 	 */
 	public Message(String message, double x, double y, int duration, Color color, int size) {
 		_x =x;

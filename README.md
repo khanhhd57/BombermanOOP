@@ -69,7 +69,7 @@ Xem comment ở starter project
 ## project structure
 src/uet.oop.bomberman
 ├── audio
-│       └── MyAudioPlayer.java 
+│       └── MyAudioPlayer.java
 ├── entities
 │   ├── bomb
 │   │   ├── Bomb.java
