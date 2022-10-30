@@ -65,3 +65,62 @@ Xem comment ở starter project
 3. Xử lý hiệu ứng âm thanh (thêm music & sound effects) +1đ
 4. Phát triển hệ thống server-client để nhiều người có thể cùng chơi qua mạng LAN hoặc Internet +1đ
 5. Những ý tưởng khác sẽ được đánh giá và cộng điểm theo mức tương ứng
+
+
+Project Structure
+src/uet.oop.bomberman
+├── audio
+│       └── MyAudioPlayer.java 
+├── entities
+│   ├── bomb
+│   │   ├── Bomb.java
+│   │   ├── Flame.java
+│   │    └── FlameSegment.java
+│   ├── character
+│   │   ├── enemy
+│   │   │   ├── ai
+│   │   │   │      ├──AI.class
+│   │   │   │      ├──AILow.class
+│   │   │   │       └──AIMedium.class
+│   │   │   ├── Ballon.java
+│   │   │   ├── Doll.java
+│   │   │   ├── Enemy.java
+│   │   │   ├── Kondoria.java
+│   │   │   └── Oneal.java
+│   │   ├── Bomber.java
+│   │   └── Character.java
+│   ├── Title
+│   │   ├── destroyable
+│   │   │   ├── Brick.java
+│   │   │   └── Destroyable.java
+│   │   ├── item
+│   │   │   ├── BombItem.java
+│   │   │   ├── FlameItem.java
+│   │   │   ├── Item.java
+│   │   │   └──SpeedItem.java
+│   │   ├── Grass.java
+│   │   ├── Potal.java
+│   │   ├── Tile.java
+│   │   └── Wall.java
+│   ├── AnimatedEntitiy.java
+│   ├── Entity.java
+│   ├── LayeredEntity.java
+│   └── Message.java
+├── exceptions
+│   ├── GameException.java
+│   └──LoadLevelExeption.java
+├──graphics
+│   ├──Screen.java
+│   ├──Sprite.java
+│   └──SpriteSheet.java
+├──gui
+│   ├──Frame.java
+│   ├──GamePanel.java
+│   └──InfoPanel.java
+├──input
+│   └──Keyboard.java
+├──level
+│   ├──Board.java
+│   ├──BombermanGame.java
+│   └──Game.java
+
