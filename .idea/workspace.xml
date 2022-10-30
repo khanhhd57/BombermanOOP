@@ -22,10 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff33b66b-f4be-49af-9ce0-bf0984971837" name="Default Changelist" comment="fix">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uet/oop/bomberman/entities/character/enemy/Kondoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/uet/oop/bomberman/entities/character/enemy/Kondoria.java" afterDir="false" />
-    </list>
+    <list default="true" id="ff33b66b-f4be-49af-9ce0-bf0984971837" name="Default Changelist" comment="upd enemy kondoria" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -205,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667144221395</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="upd enemy kondoria">
+      <created>1667146913152</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1667146913152</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -226,7 +230,8 @@
     <MESSAGE value="fix map" />
     <MESSAGE value="abc123" />
     <MESSAGE value="fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix" />
+    <MESSAGE value="upd enemy kondoria" />
+    <option name="LAST_COMMIT_MESSAGE" value="upd enemy kondoria" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Bomberman$BombermanGame.ic" NAME="BombermanGame Coverage Results" MODIFIED="1606409189055" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
