@@ -47,9 +47,6 @@ public abstract class Character extends AnimatedEntitiy {
 
 	/**
 	 * Kiểm tra xem đối tượng có di chuyển tới vị trí đã tính toán hay không
-	 * @param x
-	 * @param y
-	 * @return
 	 */
 	protected abstract boolean canMove(double x, double y);
 
