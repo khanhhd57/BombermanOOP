@@ -22,10 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff33b66b-f4be-49af-9ce0-bf0984971837" name="Default Changelist" comment="fix">
+    <list default="true" id="ff33b66b-f4be-49af-9ce0-bf0984971837" name="Default Changelist" comment="map">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/levels/Level1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/res/levels/Level1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/levels/level2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/res/levels/level2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/levels/Level2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/res/levels/Level2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/levels/Level1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/levels/Level1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/levels/level2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/levels/level2.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667147492322</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="map">
+      <created>1667180679547</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1667180679547</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -242,7 +250,8 @@
     <MESSAGE value="abc123" />
     <MESSAGE value="upd enemy kondoria" />
     <MESSAGE value="fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix" />
+    <MESSAGE value="map" />
+    <option name="LAST_COMMIT_MESSAGE" value="map" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Bomberman$BombermanGame.ic" NAME="BombermanGame Coverage Results" MODIFIED="1606409189055" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
